@@ -1,2 +1,7 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Book detail</h1>
+
+<%= link_to user_path(@book.user_id) do %>
+<%= image_tag @user.get_profile_image(100, 100) %>
+
+<%= @book.user.name %>
+

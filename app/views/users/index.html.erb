@@ -1,0 +1,16 @@
+<h1>Users</h1>
+
+<% @books.each do |book| %>
+
+<p>name</p>
+<span><%= book.title %></span>
+
+<p>opinion</p>
+<span><%= book.body %></span>
+
+
+<%= image_tag @user.get_profile_image(100, 100) %>
+
+
+
+<% end %>

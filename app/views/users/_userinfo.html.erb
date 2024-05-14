@@ -1,0 +1,15 @@
+
+
+<h1>User info</h1>
+<%= image_tag @user.get_profile_image(100, 100) %>
+
+<h5>name</h5>
+<%= @user.name %>
+
+<h5>introduction</h5>
+<%= @user.introduction %>
+
+
+<%= link_to "設定", edit_user_path(current_user.id)  %>
+
+

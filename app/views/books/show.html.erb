@@ -1,3 +1,9 @@
+
+
+<%= render 'users/userinfo',users: @users %>
+<%= render 'newbook',book: @book_new %>
+
+
 <h1>Book detail</h1>
 
 <%= link_to user_path(@book.user_id) do %>
@@ -5,13 +11,18 @@
 
 <%= @book.user.name %>
 
+<% end %>
+
+<%= link_to @book.title, book_path(@book.id) %>
+<%= @book.body %>
+
 
 <td><%= link_to "Edit", edit_book_path(@book) %></td>
 
 <td><% if @book.user == current_user %>
     <%= link_to "Destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか?" %></td>
 
-    <% end %>
+    
 
 <% end %>
 

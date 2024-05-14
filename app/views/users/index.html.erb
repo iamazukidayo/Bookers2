@@ -1,15 +1,18 @@
+
+<%= render 'userinfo',users: @users %>
+<%= render 'books/newbook', book: @book %>
 <h1>Users</h1>
 
 
-<% @users.each do |book| %>
+<% @users.each do |user| %>
 
 <p>image</p>
-<%= image_tag @user.get_profile_image(100, 100) %>
+<%= image_tag user.get_profile_image(100, 100) %>
 
 
 <p>name</p>
-<span><%= @user.name %></span>
-
+<span><%= user.name %></span>
 
 
 <% end %>
+

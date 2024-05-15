@@ -30,17 +30,17 @@
                 <%= link_to user_path(current_user.id), class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-house"></i> Homes
                 <% end %>
-                
+
               <li>
                 <%= link_to users_path, class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-users"></i> Users
                 <% end %>
-                
+
               <li>
                 <%= link_to books_path, class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-book"></i> Books
                 <% end %>
-                
+
               <li>
                 <%= link_to destroy_user_session_path, method: :delete, class: 'nav-link text-light' do %>
                   <i class="fa-solid fa-arrow-right-from-bracket"></i> Log out
@@ -78,5 +78,14 @@
     <main>
      <%= yield %>
     </main>
+    <footer>
+      <div class="container mt-5">
+       <div class="row">
+        <div class="mx-auto">
+          <p>CopyRight Infratop.inc</p>
+        </div>
+       </div>
+      </div>
+    </footer>
   </body>
 </html>

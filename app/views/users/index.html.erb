@@ -1,18 +1,36 @@
 
-<%= render 'userinfo',users: @users %>
-<%= render 'books/newbook', book: @book %>
-<h1>Users</h1>
+<div class="container px-5 px-sm-0">
+ <div class="row">
+  <div class="col-md-3">
+    <%= render 'userinfo',users: @users %>
+    <%= render 'books/newbook', book: @book %>
+  </div>
+  
+  <div class="col-md-8 offset-md-1">
+    <h2>Users</h2>
+    <table class ="table table -hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      <thead>
+        
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td></td>
+          <td><%= image_tag user.get_profile_image(100, 100) %></td>
+          <td><%= user.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+  </div>
+</div>
 
+      
+        
 
-<% @users.each do |user| %>
-
-<p>image</p>
-<%= image_tag user.get_profile_image(100, 100) %>
-
-
-<p>name</p>
-<span><%= user.name %></span>
-
-
-<% end %>
 

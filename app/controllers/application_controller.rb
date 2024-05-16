@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email])
   end
+
+  def is_matching_login_user
+    user = User.find(params[:id])
+    unless user == current_user
+      flash[:notice] = "他のユーザーの編集画面にアクセスすることはできません。"
+      redirect_to root_path
+    end
+  end
 end

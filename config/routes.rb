@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   # devise_for :users
 
-  resources :books, only: [:new, :create, :index, :show, :edit, :destroy]
+  resources :books, only: [:new, :create, :index, :show, :edit, :destroy, :update]
   resources :users, only: [:show, :edit, :index, :update]
   get "/homes/about" => "homes#about", as:"about"
 

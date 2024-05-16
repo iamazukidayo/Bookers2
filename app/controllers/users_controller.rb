@@ -26,10 +26,12 @@ class UsersController < ApplicationController
        flash[:notice] = "You have update user successfully."
        redirect_to user_path(current_user.id)
      else
-      # flash[:notice] = "error prohibited this obj from being saved:"
+      # flash[:notice] = "
        render :edit
      end
    end
+   
+   
 
    private
 

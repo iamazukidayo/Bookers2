@@ -2,10 +2,7 @@ class Book < ApplicationRecord
   include ActiveModel::Validations
   belongs_to :user
 
+  validates :title, presence: true
+  validates :body, presence: true,length: { maximum: 200}
 end
-
-  # validates :title, presence: true
-
-  # validates :body,
-  # length: {minimum: 1, maximun: 200 }, on: :create
 

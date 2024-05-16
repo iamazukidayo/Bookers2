@@ -1,7 +1,13 @@
 
+
   <div class="container px-5 px-sm-0">
    <div class="row">
      <div class="col-md-3">
+
+     <div>
+      <%= flash[:notice] %>
+     </div>
+
       <%= render 'userinfo',users: @users %>
       <%= render 'books/newbook', book: @book %>
      </div>
@@ -23,11 +29,12 @@
               <td><%= image_tag @user.get_profile_image(100, 100) %></td>
               <td><%= link_to book.title, book_path(book.id) %></td>
               <td><%= book.body %></td>
-           
+
            </tr>
            <% end %>
-           
+
           </tbody>
+        </table>
      </div>
 </div>
 

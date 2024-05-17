@@ -1,6 +1,8 @@
 class BooksController < ApplicationController
-  
-  before_action :is_matching_login_user, only: [:edit, :update]
+
+  before_action :is_matching_login_user, only: [:edit, :update, :index]
+   before_action :move_to_signed_in
+
   def new
     @book = Book.new
   end
@@ -47,7 +49,7 @@ class BooksController < ApplicationController
    if @book.update(book_params)
     flash[:notice] = "You have update book Successfully"
     redirect_to book_path(@book.id)
-   else 
+   else
     render :edit
    end
   end
@@ -57,8 +59,14 @@ class BooksController < ApplicationController
     def book_params
      params.require(:book).permit(:title, :body, :user_id)
     end
-    
+
     def is_matching_login_user
+    end
+
+    def move_to_signed_in
+       unless user_signed_in?
+           redirect_to '/users/sign_in'
+       end
     end
 end
 

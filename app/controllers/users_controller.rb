@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    before_action :is_matching_login_user, only: [:edit, :update]
-    before_action :move_to_signed_in, except: [:index]
+    before_action :is_matching_login_user, only: [:edit, :update, :index, :show, :edit,]
+    before_action :move_to_signed_in
   def index
     @users = User.all
     @books = Book.all
@@ -17,6 +17,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+        render :edit
+    else
+        redirect_to user_path(@user.id)
+    end
   end
 
 
@@ -48,5 +53,7 @@ class UsersController < ApplicationController
            redirect_to '/users/sign_in'
        end
    end
+   
+   
 end
 

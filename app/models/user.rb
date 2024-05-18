@@ -15,10 +15,10 @@ class User < ApplicationRecord
   length: { minimum: 2, maximum: 20 }, on: :update
 
 
-  validates :introduction,uniqueness: true,  presence: true,
-  length: {minimum: 1, maximun: 50 }, on: :update
-  
-  
+  validates :introduction,uniqueness: true,
+  length: { maximum: 50 }
+
+
 
 
 

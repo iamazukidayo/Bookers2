@@ -4,17 +4,17 @@
   <%= flash[:notice] %>
 </div>
 
-<div class="container px-5 px-sm-0">
-  <div class="row">
-    <div class="col-md-3">
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-3'>
     <%= render 'users/userinfo',user: @user %>
     <%= render 'newbook',book: @book_new %>
     </div>
 
 
-    <div class="col-md-8 offset-md-1">
+    <div class='col-md-8 offset-md-1'>
      <h2>Book detail</h2>
-       <table class="table">
+       <table class='table'>
          <tbody>
            <tr>
                <td><%= link_to user_path(@book.user_id) do %>
@@ -43,7 +43,26 @@
                   <!--% end %>-->
                 </td>
                <% end %>
+               <td id="favorite_buttons_<%= @book.id %>">
+                 <%= render "favorites/favorites", book: @book %>
+               </td>
+               <td id="comment_counter">
+                 <%= render "book_comments/counter", book: @book %>
+               </td>
            </tr>
+           <tr>
+                <td id="comment_index">
+                  <%= render "book_comments/index", book: @book %>
+                </td>
+
+           </tr>
+
+
+               <tr>
+                 <td>
+                   <%= render "book_comments/form", book: @book, book_comment: @book_comment %>
+                 </td>
+               </tr>
 
          </tbody>
        </table>

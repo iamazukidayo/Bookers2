@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :is_matching_login_user, only: [:edit, :update, :index, :show, :edit,]
     before_action :move_to_signed_in
+  
   def index
     @users = User.all
     @books = Book.all
